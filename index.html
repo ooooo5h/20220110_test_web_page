@@ -1,6 +1,6 @@
 <html>
     <head>
-    
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
     </head>
     <body>
         <input id="idInput" placeholder='아이디'><br>
@@ -13,11 +13,28 @@
             let inputId = document.getElementById('idInput').value
             let inputPw = document.getElementById('pwInput').value
 
-            alert(inputId)
-            alert(inputPw)
+            // alert(inputId)
+            // alert(inputPw)
 
             // 입력한 아이디와 비밀번호를 받아냈다
             // 파이썬 서버의 로그인 기능에 전달해보자
+
+            // 앱처럼, API 통신을 해야한다 => js의 라이브러리 axios 라이브러리
+
+            let axiosInstance = axios.create({
+
+                baseURL : 'http://localhost:5000',
+            })
+
+            axiosInstance.get('/login_test', {
+                params : {
+                    'login_id' : inputId,
+                    'pw' : inputPw,
+                }
+            })
+            .then(function (res) {
+                console.log(res)
+            })
         }
     </script>
 </html>

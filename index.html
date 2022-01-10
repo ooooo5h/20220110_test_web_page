@@ -3,13 +3,21 @@
     
     </head>
     <body>
-        <input placeholder='아이디'><br>
-        <input placeholder='비밀번호'><br>
+        <input id="idInput" placeholder='아이디'><br>
+        <input id="pwInput" placeholder='비밀번호'><br>
         <button onclick="test()">  로그인</button>
     </body>
     <script>
         function test(){
-            alert('로그인 버튼 눌림')
+
+            let inputId = document.getElementById('idInput').value
+            let inputPw = document.getElementById('pwInput').value
+
+            alert(inputId)
+            alert(inputPw)
+
+            // 입력한 아이디와 비밀번호를 받아냈다
+            // 파이썬 서버의 로그인 기능에 전달해보자
         }
     </script>
 </html>
